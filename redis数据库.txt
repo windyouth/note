@@ -1,0 +1,53 @@
+﻿字符串
+--------------------------------------------
+set/get : 写/读字符串值
+incr/decr : 整型值自增/自减1
+incrby/decrby : 整型值加/减
+incrbyfloat/decrbyfloat : 浮点数加/减
+mset/mget : 批量写/读字符串
+
+哈希
+--------------------------------------------
+hset/hget/hgetall : 写/读/读所有
+hmset/hmget : 写/读多个值
+
+列表
+--------------------------------------------
+lpush/rpush : 从列表头/尾插入数据
+lpop : 从列表头弹出数据
+lset/lindex : 对指定索引位置写/读数据
+
+集合
+--------------------------------------------
+sadd : 添加值
+spop : 弹出值
+smembers : 查看所有值
+sinter/sunion/sdiff : 取交/并/差集
+smove : 移动值
+
+有序集合
+--------------------------------------------
+zadd : 添加值
+zrange : 读取指定索引范围内的值
+zrank/zscore : 查看值的排序号/键值
+
+-------------------------------------------------------------------------------
+type keyname : 查看类型
+exists/type/keys : 是否存在/类型/条件查找
+del key : 删除一个key
+
+expire/pexpire : 设置有效期（秒/毫秒）
+expireat/pexpireat : 设置到期时间（秒/毫秒时间戮）
+ttl/pttl : 查看过期时间(秒/毫秒)
+persist : 移除到期时间
+
+
+dump/restore : 序列化/反序列化某个键
+rename/move/del : 重命名/移动/删除某个键
+
+subscribe/publish : 订阅消息通道/向消息通道发送消息
+multi/exec : 事务的开始/提交
+auth "password" : 连接服务器进行密码验证
+ping : 检测服务器状态
+select : 切换数据库
+quit : 关闭连接

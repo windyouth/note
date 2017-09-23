@@ -1,0 +1,40 @@
+﻿1、解决bug最通用的方法：排除法、调试、网络抓包、查看日志。
+2、不要过度依赖搜索引擎，已安装程序看帮助，工程项目看日志，开源项目看官方文档。
+3、
+4、不要特么的从网上直接拷代码往linux里面写，后患无穷。
+5、如果bug复杂到无法解决，可能你已经陷入死胡同。起来走一圈，换个思路，从头开始解决。
+6、linux的apparmor机制对软件的权限限制得很死，只能在某个文件夹中读/写，子文件夹都不行。
+7、json字符串中的中文是无法正常显示的，必须先进行json解码。
+8、php函数传参时，如果是字符串变量，要加引号；如果是宏，则不能加引号。
+9、php中数组的key，放在外面要加引号，放在字符串中，则不能加引号。
+10、ubuntu 常见错误--Could not get lock /var/lib/dpkg/lock。
+    解决方法，输入：sudo rm /var/cache/apt/archives/lock
+		    sudo rm /var/lib/dpkg/lock
+    再开始安装程序，问题解决。
+11、gdb调试的程序必须以前台方式运行，不能以后台(daemon)方式运行。
+12、xCloudClient必须先删文件再杀进程，否则直接杀杀不掉。
+13、路由器发特殊心跳包，断电之后要重新设置，通过14000端口。
+14、linux程序运行时出现：Segmentation fault.错误，是由于访问了非法内存。
+15、C语言开发中，结构体定义时如果不加typedef，使用时必须加struct前缀；
+    反之，如果加了typedef，使用时则不能加struct前缀。否则两种情况都编绎不过。
+    且两种指针不能隐式转换，否则会有段错误。
+16、C语言中，貌似for循环的初始化语句中不支持逗号表达式，只能把多的语句写在中间判断语句中。
+17、svn错误is the root of a working copy and cannot be deleted ，删除文件夹里面的.svn目录
+18、svn的目录如果有外部属性，无法直接删除。可svn proplist查看外部属性列表，再svn propdel 属性名，删除外部属性，然后svn commit。
+19、Makefile的连续两行命令之间不要加注释，否则会出现未知错误，比如$$$$随机数不一致。
+20、Makefile的注释必须单独写一行，不然坑它大爷啊。变量是宏替换，所以行末不能有空格、tab之类的。
+21、makefile中.d文件只能先编入.o目标文件
+22、relocation R_X86_64_32 against `.rodata' can not be used when making a shared object; recompile with -fPIC 
+    编绎so动态库时出现此错误，是因为生成.o文件时没有加-fPIC，正确的方式是：
+    gcc -c hlnet.c -fPIC
+    gcc hlnet.o -o hlnet.so -L ../lib -lev -lcstl -luthread -fPIC -shared
+23、编绎动态库时，.o文件不能依赖.d文件，否则.o文件下的命令将不生效，而使用.d文件中自动生成的命令。
+24、shell脚本不支持等号与变量间有空格。
+25、新装的visual studio无法打开解决方案，提示unavilable，是因为还有C/C++的编绎环境没有安装，点击project->install missing foundation安装剩余组件后，解决。
+26、C++的Json库无符号只识别unsigned int类型的数据。
+27、gdb多线程调试无法触发断点，要么是程序编绎时没加调试信息，要么是没有输continue命令。
+28、路由器的wan口没有插网线时，跟路由器是没法进行TCP通信的，只能进行UDP通信。
+29、结构体编绎报错：has no member named ‘结构体成员名’，很可能是因为该成员前面的成员数据类型编绎器不识别，导致成员定义不成功，报此错误。
+30、centos的最小化安装时只会安装vi，不会安装vim，vim要另外装，vim的很多指令在vi中无法被识别。
+31、centos启动时提示：dm-0 WRITE SAME failed, Manually zeroing，可以在提示后面输入账号正常登录，后来在电脑一次蓝屏后自动好了。估计是系统的原因。
+32、gcc -std=c99 编绎时不识别stack_t结构体，是c99标准的问题，换成-std=gnu99，编绎通过。

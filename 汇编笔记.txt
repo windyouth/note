@@ -1,0 +1,6 @@
+﻿1.INT21指令或者其他中断指令，要先设置AH中的指令编号
+  如：mov ah, 4ch  INT21
+2.SHR或者SHL，源操作数大于1，要先放入CL寄存器.
+  如：mov cl, 4
+      shr al, cl
+3.cs设置逻辑段后系统会自动将寄存器和代码段绑定，其他寄存器需要手动代码绑定，如DS，SS等。mov ax, dseg; mov ds, ax;

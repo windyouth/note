@@ -1,0 +1,36 @@
+﻿           < -- gdb命令-- >
+1.gdb hello: 调试hello程序
+2.info break: 查看断点信息 
+3.delete 断点编号:删除断点    clear 断点所在行号:删除该行断点
+4.disable/enable 断点编号: 禁用/启用断点
+5.watch 变量名: 设置观察点,当变量值产生变化时程序会暂停
+6.info watchpoints: 查看所有观察点
+7.print 变量名: 在运行到断点处,查看变量的值
+8.print 'hello.c'::c : 查看hello.c文件中全局变量c的值
+9.print指令可查看:变量值,表达式的值,数组内容,函数调用等信息
+10.print *a@6: 查看数组a的前6项的值
+11.display 变量名: 让该变量的值自动显示
+12.delete/enable/disable display 编号: 删除/恢复/禁用 自动显示项
+13.whatis/ptype 变量名: 查看变量的数据类型
+14.set c = 50: 修改变量的值以测试代码的健壮性
+15.step: 单步执行,可进入函数内部 <==> F11;   next <=> F10 
+15.step跟踪进入函数体后,用return 参数,可立即返回; finish 执行完函数体返回
+16.until 行号: 执行到指定行号
+17.jump 行号: 跳转到某一行执行,忽略中间的语句,最好只在同一函数内部跳转
+18.call 函数名(参数): 在调试过程中, 强制调用某函数
+19.frame 栈帧编号: 查看它的信息. info frame: 查看堆栈信息
+20.info source: 查看源程序信息          info registers: 查看寄存器信息
+21.print $eax: 查看寄存器的值
+22.disassemble 函数名: 查看该函数的反汇编代码
+23.shell shell命令：gdb中执行shell命令
+25.gdb --args AuthServer -f : 带命令行参数启动程
+26.run : 开始运行调试程序
+27.continue : 运行到下一个断点
+28.break CDevice::Init : 在该函数入口处设置断点
+29 print CDevice::Init() : 打印函数的返回值
+30.thread 3 : 切换到编号为3的线程执行
+31.bt : 查看所有调用栈
+32.set scheduler-locking off|on : 不锁定任何线程/锁定当前线程 执行
+33.list - : 查看当前位置的前10行代码。
+34.show follow-fork-mode : 查看目前的跟踪模式
+35.set follow-fork-mode parent/child : 只跟踪父进程/子进程

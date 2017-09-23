@@ -1,0 +1,98 @@
+﻿1.#安装vim完整版
+sudo apt install vim-full
+
+2.#在/etc/vim/vimrc中设置这些参数
+set tabstop=4					"设置tab键长度
+set cindent					"使用C/C++语言的自动缩进方式
+set shiftwidth=4				"自动缩进使用4个空格
+set number					"使用行号
+
+3.#安装ctags标签管理
+sudo apt install ctags
+cd 工程目录和/usr/include系统目录
+ctags -R *					"在目录下建立源码索引文件tags
+ctags -R --languages=c,c++
+vi /etc/vim/vimrc				"在vim配置文件中添加
+set tags=tags					"注册ctags需要关联的tags文件路径
+set tags+=/usr/include/tags			
+set tags+=/usr/src/linux-headers-4.4.0-78/tags
+map <F5> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR><CR> ：生成tags文件快捷键
+:tselect tagname 				"显示标签指向的所有选项
+ctrl+] : 跳转到定义	ctrl+o : 返回上一处
+
+4.#安装project项目管理插件
+sudo apt install vim-addon-manager		"安装插件管理器
+sudo apt-get install vim-scripts		"安装vim脚本
+vim-addons install project			"安装project项目管理
+vim-addons status				"查看vim的各插件状态
+vim -c 'Project filename' : 			"打开项目
+\C : 						"添加新项目
+空格键 : 					"扩展/收缩项目窗口宽度
+enter键 : 					"打开文件。打开/折叠文件夹
+ctrl + w + h/j/k/l : 				"vi中上下左右切换窗口
+ctrl + w + 方向键 : 				"vi中上下左右切换窗口
+: wall          				"保存所有窗口
+: qall						"退出所有窗口
+: wqall						"保存并退出所有窗口
+
+  #安装WinManager插件
+WinManager插件配合vim自带的netrw，可以代替project插件。
+下载：http://www.vim.org/scripts/script.php?script_id=95 
+安装：在 ~/.vim 目录下解压winmanager.zip
+在~/.vimrc文件中添加如下两行：
+let g:winManagerWindowLayout='FileExplorer'
+nmap L :WMToggle<cr>
+重启vim，在normal模式下输入L，即可打开WinManager窗口，再次输入L，即关闭。
+
+5.#安装提示函数原型echofunc
+echofunc下载地址：http://www.vim.org/scripts/script.php?script_id=1735
+下载完成后，把echofunc.vim文件放到 ~/.vim/plugin文件夹中
+ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .
+"--c++-kinds=+p : 为C++文件增加函数原型的标签
+"--fields=+iaS : 在标签文件中加入继承信息(i)、类成员的访问控制信息(a)、以及函数的指纹(S)
+"--extra=+q : 为标签增加类修饰符。注意，如果没有此选项，将不能对类成员补全
+
+6.#安装taglist标签浏览器
+vim-addons install taglist
+在vim配置文件/home/user/.vimrc中加入如下的配置：
+    "-- Taglist setting --
+    let Tlist_Ctags_Cmd='ctags' "因为我们放在环境变量里，所以可以直接执行
+    let Tlist_Use_Right_Window=1 "让窗口显示在右边，0的话就是显示在左边
+    let Tlist_Show_One_File=0 "让taglist可以同时展示多个文件的函数列表
+    let Tlist_File_Fold_Auto_Close=1 "非当前文件，函数列表折叠隐藏
+    let Tlist_Exit_OnlyWindow=1 "当taglist是最后一个分割窗口时，自动推出vim
+    let Tlist_Process_File_Always=1 "是否实时更新tags.1:是;0:否
+    let Tlist_Inc_Winwidth=0
+进入vim后用命令":Tlist"打开/关闭taglist窗口
+
+7.#安装Cscope工具
+apt install cscope
+在目录下建立Cscope数据库：cscope -Rbq
+在~/.vimrc文件中加入下列配置
+ "-- Cscope setting --
+if has("cscope")
+    set csprg=/usr/bin/cscope               " 指定用来执行cscope的命令
+    set csto=0                              " 设置cstag命令查找次序：0先找cscope数据库再找标签文件；1先找标签文件再找cscope数据库
+    set cst                                 " 同时搜索cscope数据库和标签文件
+    set cscopequickfix=s-,c-,d-,i-,t-,e-    " 使用QuickFix窗口来显示cscope查找结果
+    set nocsverb
+    if filereadable("cscope.out")               " 若当前目录下存在cscope数据库，添加该数据库到vim
+        cs add cscope.out
+    elseif $CSCOPE_DB != ""                     " 否则只要环境变量CSCOPE_DB不为空，则添加其指定的数据库到vim
+        cs add $CSCOPE_DB
+    endif
+    set csverb
+endif
+"cscope的快捷键，查找函数定义。
+map <F10> :cs find g <C-R>=expand("<cword>")<CR><CR>
+imap <F10> <ESC>:cs find g <C-R>=expand("<cword>")<CR><CR>i
+
+8.安装A.vim插件，用于在h和cpp文件中切换
+下载：https://vim.sourceforge.io/scripts/script.php?script_id=31
+安装：下载a.vim文件，放入~/.vim/plugin目录下。
+在.vimrc文件中输入：
+"在h和cpp文件中切换
+map z :A<CR>
+"在quickfix窗口中前进/后退
+map n :cn<CR>
+map f :cp<CR>

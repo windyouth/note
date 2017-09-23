@@ -1,0 +1,77 @@
+﻿1、desc user; 查看user表的表结构
+   explain sql语句\G：查看这条sql语句的执行情况
+   netstat -an 查看当前机器所有的连接IP和端口
+2、一范式：纵向原子性；二范式：横向唯一性；三范式：无冗余数据
+3、数据库设计原则上应该满足第三范式，反第三范式是特殊情况特殊处理。
+4、show status like 'uptime'; 查看mysql数据库的使用时间（多少秒）
+   show status like 'com_select'; 查看select语句执行了多少次
+   show [session|global] status like '...'; 此语句格式
+   show status like 'connections'; 查看连接数
+   show status like 'slow_queries'; 查看慢查询次数，不止针对查询，而是针对所有SQL语句
+   show variables like 'long_query_time'; 查询慢查询的时间设置
+   set long_query_time=1; 把慢查询的时间设置为1秒 
+5、set names gbk; //设置字符集为gbk
+   delimiter $$; //将结束符修改为$$
+   set autocommit = 0; //自动提交设置为0，这样就在结束时一次性提交
+   show create table table_name; //查询创建该表的create语句
+6、数据库中的对象(表、存储过程、视图、函数、触发器)
+7、select get_string(5) from dual; //dual 亚元表，空表。
+   call insert_employee(1000, 5000);   //调用存储过程语
+8、慢查询日志记录启动方式：bin\mysqld.exe --safe-mode --slow_query_log 
+   慢查询日志放在my.ini文件中datadir所指定的目录下面。
+   data文件夹中文件含义： .frm：表结构   .MYD: 表内容   .MYI: 表索引
+9、四种索引：主键索引、唯一索引、全文索引、普通索引
+10、查询索引：show index/keys from user\G 查询user表的索引
+    添加索引：alter table user add primary key(id); 为user表的id列添加主键索引
+	      create index 索引名 on 表名(列名); 创建普通索引
+              create unique index 索引名 on 表名(列名); 创建唯一索引
+11、使用全文索引：select * from articles where match(title, body) against('关键字');
+    全文索引(fulltext)只针对MyISAM引擎生效，只针对英文生效，sphinx(coreseek)技术处理中文
+    全文索引对于常用词不会建索引，这就是停止词。
+12、主键不能为空，也不能重复。
+13、索引的适用条件：A、频繁作为查询条件字段(where子句中)应该创建索引
+		    B、不会出现在where子句中的字段不该创建索引
+		    C、唯一性太差的字段不适合单独创建索引
+		    D、更新频繁的字段不适合创建索引
+14、A、对于多列联合索引，只有where使用最左边的列时，索引才会被用到
+    B、like查询：'%aaa'或'_aaa'不会用到索引，'aaa%'会用到索引，即最前面的字符必须是确定的
+    C、or查询条件中，所有的字段都要建索引，否则就都不会用到索引
+    D、带索引的字符串列，查询时字符串必须加单引号，否则索引失效
+    E、如果mysql认为全表扫描比使用索引快，则不使用索引。比如表中只有一条记录
+15、垂直分表：把大字段单独提出来，放在另外一张表，以对原表进行瘦身，提高查询速度
+16、create table test(id tinyint(3) zerofill); //字段的值占三位，左边以0填充，例如插入9，显示009
+17、mysql的极限并发数2000左右，优化做好了可支撑一个10万访问量的网站
+18、在my.ini文件中添加：
+    #存放增量备份文件的目录
+    log_bin=D:\mysql_backup\mylog
+    重启mysql，即可使用增量备份功能
+19、在控制台下，输入命令： mysqlbinlog D:\mysql_backup\mylog.000002  查看mysql备份文件的内容
+20、从增量备份中恢复数据
+    mysqlbinlog --stop-datetime="2017-02-19 13:16:30" D:\mysql_backup\mylog.000001 | mysql -uroot -p
+    mysqlbinlog --stop-position="397" D:\mysql_backup\mylog.000001 | mysql -uroot -p
+    执行位置段的操作：
+    mysqlbinlog --start-position="397" --stop-position="999" D:\mysql_backup\mylog.000001 | mysql -uroot -p
+21、reset master //清理增量备份的日志
+    配置文件中添加： expire_logs_day = 3    //设置超过3天的日志自动清除
+22、备份策略：每周做一次全备份(mysqldump...)，同时启用增量备份，将过期时间设为>=7天  
+23、show status like 'Handler_read%'; //查看索引被使用次数
+24、批量导入数据 
+    MyISAM: alter table table_name disable/enable keys; //禁用/启用索引
+    Innodb: A、set unique_checks = 0; //关闭唯一性校验
+            B、set autocommit = 0; //关闭自动提交
+25、select * from employee group by dept_no order by null; //分组查询，但不排序，降低性能损耗
+26、select * from department left join employee on department.no = employee.dept_no; //使用左连接查询代替子查询，就不需要创建临时表
+27、MyISAM: 表对事务和安全性要求不高，以查询和添加为主。
+    InnoDB: 对事务、安全性要求较高的表
+    Memory: 数据更新频繁，不需要入库，同时又频繁的查询
+28、MyISAM和InnoDB的区别：1、查询和添加速度，MyISAM更快
+                          2、事务安全，MyISAM不支持，InnoDB支持
+                          3、全文索引，只有MyISAM支持
+                          4、锁机制，MyISAM是表锁，InnoDB是行锁
+                          5、外键，MyISAM不支持外键，InnoDB支持外键
+29、对于MyISAM引擎，一定要定时进行碎片整理。
+    optimize table table_name; //对表进行碎片整理
+30、备份：CMD控制台下：mysqldump -u root -p198618 数据库名 [表名1 表名2...] > 文件路径
+    恢复：mysql控制台下：source 备份文件路径
+31、linux下，可用crontab指令定时执行bat批处理文件
+    windows下，在控制面板->任务计划中添加定时任务，路径名中如包含空格，必须用双引号引起来               

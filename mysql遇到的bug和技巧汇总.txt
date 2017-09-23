@@ -1,0 +1,24 @@
+﻿bug汇总：
+1、mysql不支持“--”注释。
+2、mysql在sql文件中不支持delimiter语句，所以delimiter语句应用在source调用语句之前。
+3、sql文件中mysql貌似不支持嵌套注释。
+4、存储过程的参数，varchar不支持中文，若要支持中文，必须设为nvarchar。
+5、mysql中if的正确用法：set id = if(result > 0, last_insert_id(), 0);
+6、php5.5之后的版本，取消了对mysql扩展的支持，只支持mysqli
+
+技巧：
+1、查看字符集：show variables like '%char%';
+2、查看创建表语句：show create table tablename;
+3、修改列名：alter table domain change column `type` domain_type varchar(16);
+4、创建用户：create user 'cdn_admin' identified by 'heluanhl';
+5、给用户授予权限：grant select, insert, update, delete, execute on cdn.* to 'cdn_admin';
+6、修改列属性：alter table domain modify status enum('on', 'off');
+7、查看列：desc 表名;
+8、修改表名：alter table t_book rename to bbb; 
+9、添加列：alter table 表名 add column 列名 varchar(30); 
+10、删除列：alter table 表名 drop column 列名; 
+11、修改列名MySQL： alter table bbb change nnnnn hh int; 
+12、修改列名SQLServer：exec sp_rename't_student.name','nn','column'; 
+13、修改列名Oracle：lter table bbb rename column nnnnn to hh int; 
+14、修改列属性：alter table t_book modify name varchar(22); 
+15、纵向显示查询结果：select * from users\G;
