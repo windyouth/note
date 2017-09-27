@@ -1,5 +1,5 @@
 ﻿            < -- makefile命令 -- >
-make -C dirname : 指定运行后的工作目录
+make -C dirname : 进入目录后再执行make命令
 make -f filename : 显式地指定文件为Makefile
 make -s/-n : 检查Makefile文件的语法，过程中不显示/显示命令。
 Makefile文件的组成部分：目标、依赖项、命令

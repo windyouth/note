@@ -38,3 +38,4 @@
 30、centos的最小化安装时只会安装vi，不会安装vim，vim要另外装，vim的很多指令在vi中无法被识别。
 31、centos启动时提示：dm-0 WRITE SAME failed, Manually zeroing，可以在提示后面输入账号正常登录，后来在电脑一次蓝屏后自动好了。估计是系统的原因。
 32、gcc -std=c99 编绎时不识别stack_t结构体，是c99标准的问题，换成-std=gnu99，编绎通过。
+33、makefile 错误 recipe commences before first target.  Stop. 是因为在普通shell语句前面加了tab键，makefile将tab键开头的语句视为命令，必须与目标项搭配使用。
