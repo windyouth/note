@@ -1,0 +1,55 @@
+﻿SVN：
+1、安装SVN：sudo apt install subversion
+2、检出： svn checkout 地址
+3、上传新文件：svn add 文件名
+                           svn commit -m "备注"
+4、修改代码：直接输入：svn commit -m "备注"
+5、删除文件：svn delete 文件名
+                        svn commit -m "备注"
+6、如果误删了文件：svn up 或者 svn revert -r version
+7、查看最近5条提交日志：svn log --limit 5
+8、比较本地文件与远程数据库中版本的差异：svn diff test.cpp
+--------------------------------------------------------------------------------------------------------------------
+GIT：git下有4个对象：代码、索引、本地仓库、远程仓库
+1、安装git：sudo apt install git
+2、安装ssh密钥：ssh-keygen -t rsa -C "邮箱名"
+        cat ~/.ssh/id_rsa.pub
+        在服务器的管理页面上添加此密钥
+3、配置用户名和邮箱：git config --global user.name "用户名"
+           git config --global user.email "邮箱名"
+
+4、克隆代码到本地：git clone 地址
+5、查看区别：git diff --stat   查看代码与索引间不同的文件
+	     git diff --stat --cached  查看索引与本地仓库之间不同的文件，即已经add还没有commit的改动
+	     git cherry -v / git log master ^origin/master     查看本地仓库与远程仓库之间的差异
+       git diff hello.c  查看该文件与索引上版本的区别
+       git diff 版本号1 版本号2 文件名 ：比较该文件两个版本之间的差异
+       
+
+6、查看提交日志并显示涉及到的文件：git log --stat
+  查看最近提交的5条日志记录 ： git log -n 5
+6、从代码添加文件到索引：
+             git add 文件名1
+       git add 文件名2
+  删除文件：git rm test.txt (删除文件)
+       git rm -r test (删除文件夹)
+7、从索引提交到本地仓库：git commit -m "备注"
+8、从本地仓库推送到服务器：git push origin master
+
+10、查看本地分支：git branch 
+11、查看远程分支：git branch -a
+12、基于某版本创建分支：git branch branchname 06ff30d771305dac9f161614c6faf03911a760e2
+13、推送分支到服务器：git push origin branchname
+14、切换分支：git checkout branchname
+15、删除分支：git branch -d branchname
+16、重命名分支：git branch -m oldname newname
+
+17、提交所有修改：git commit -m "commit message" -a
+18、提交单个文件：git commit -m "commit message" readme.txt
+
+19、从远程更新文件到本地：git pull
+19、将branchname分支的修改内容合并到本地分支并提交：git merge branchname
+20、手动编辑冲突文件，解决冲突：git mergetool
+21、查看当前分支的状态：git status
+---------------------------------------------------------------------------------------------------------------
+svn要先update再提交；git则相反，不要先pull，直接提交，否则很可能会产生很多冲突。
