@@ -40,3 +40,6 @@
 32、gcc -std=c99 编绎时不识别stack_t结构体，是c99标准的问题，换成-std=gnu99，编绎通过。
 33、makefile 错误 recipe commences before first target.  Stop. 是因为在普通shell语句前面加了tab键，makefile将tab键开头的语句视为命令，必须与目标项搭配使用。
 34、库文件如何防止内部调用的函数被应用层同名函数覆盖？将内部调用的函数加static前缀。暴露出去的函数接口则加上模块前缀。
+35、expected expression before ‘do’：调用函数宏时出此问题，因为用了这种：res = log(..); log是一个函数宏，去掉前面的res = ，问题解决。
+36、undefined reference to `va_start'：添加 #include “stdarg.h”解决。
+37、将静态库编绎到动态库中，不可行。代码要么编成静态库，要么编成动态库。
