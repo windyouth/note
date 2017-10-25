@@ -43,3 +43,4 @@
 35、expected expression before ‘do’：调用函数宏时出此问题，因为用了这种：res = log(..); log是一个函数宏，去掉前面的res = ，问题解决。
 36、undefined reference to `va_start'：添加 #include “stdarg.h”解决。
 37、将静态库编绎到动态库中，不可行。代码要么编成静态库，要么编成动态库。
+38、<time.h>和<sys/time.h>这两个头文件是不一样的，不能混用。
