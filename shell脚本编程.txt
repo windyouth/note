@@ -51,6 +51,7 @@ cent os 7 查看系统语言：locale  更改系统语言: vi /etc/locale.conf
 cent os 设置DHCP : 打开/etc/sysconfig/network-scripts/ifcfg-ens33，设置：BOOTPROTO=DHCP  ONBOOT=yes
 unzip test.zip -d test : unzip解压到指定目录
 wc -l `find . -name *.c -o -name *.h` 统计代码行数
+man info --help : linux下查看帮助的三个命令
 -------------------------------------------------------------------------------------
 useradd/usermod/userdel : 添加/修改/删除用户
 useradd username -g groupname : 添加用户时指定用户组
