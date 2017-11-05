@@ -1,0 +1,10 @@
+配置IP
+---------------------------------------------------------------------
+进入/etc/sysconfig/network-scripts，打开ifcfg-ens33，设置如下值：
+BOOTPROTO=DHCP				#动态dhcp获取IP
+ONBOOT=yes				#允许静态IP，设置后静态IP和动态的DHCP的IP会同时生效
+IPADDR=192.168.1.8			#静态IP地址
+GATEWAY=192.168.1.1			#网关
+DNS1=172.16.16.16			#两个DNS地址
+DOMAIN=172.16.16.17
+	

@@ -1,5 +1,6 @@
 ﻿1.#安装vim完整版
 sudo apt install vim-full
+yum install vim
 
 2.#在/etc/vim/vimrc中设置这些参数
 set tabstop=4					"设置tab键长度

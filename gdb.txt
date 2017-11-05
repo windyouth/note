@@ -7,7 +7,7 @@
 6.info watchpoints: 查看所有观察点
 7.print 变量名: 在运行到断点处,查看变量的值
 8.print 'hello.c'::c : 查看hello.c文件中全局变量c的值
-9.print指令可查看:变量值,表达式的值,数组内容,函数调用等信息
+9.print指令可查看:变量值,表达式的值,结构体的值,数组内容,函数调用等信息
 10.print *a@6: 查看数组a的前6项的值
 11.display 变量名: 让该变量的值自动显示
 12.delete/enable/disable display 编号: 删除/恢复/禁用 自动显示项
