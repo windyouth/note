@@ -21,7 +21,7 @@ GIT：git下有4个对象：代码、索引、本地仓库、远程仓库
 4、克隆代码到本地：git clone 地址
 5、查看区别：git diff --stat   查看代码与索引间不同的文件
 	     git diff --stat --cached  查看索引与本地仓库之间不同的文件，即已经add还没有commit的改动
-	     git cherry -v / git log master ^origin/master     查看本地仓库与远程仓库之间的差异
+	     git cherry -v / git log master ^origin/master --stat    查看本地仓库与远程仓库之间的差异
        git diff hello.c  查看该文件与索引上版本的区别
        git diff 版本号1 版本号2 文件名 ：比较该文件两个版本之间的差异
        
