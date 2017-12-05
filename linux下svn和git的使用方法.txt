@@ -28,9 +28,9 @@ GIT：git下有4个对象：代码、索引、本地仓库、远程仓库
 
 6、查看提交日志并显示涉及到的文件：git log --stat
   查看最近提交的5条日志记录 ： git log -n 5
-6、从代码添加文件到索引：
-             git add 文件名1
-       git add 文件名2
+6、从代码添加文件/目录到索引：
+             git add 文件名
+       git add 目录名 
   删除文件：git rm test.txt (删除文件)
        git rm -r test (删除文件夹)
 7、从索引提交到本地仓库：git commit -m "备注"

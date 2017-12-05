@@ -52,6 +52,7 @@ cent os 设置DHCP : 打开/etc/sysconfig/network-scripts/ifcfg-ens33，设置�
 unzip test.zip -d test : unzip解压到指定目录
 wc -l `find . -name *.c -o -name *.h` 统计代码行数
 man info --help : linux下查看帮助的三个命令
+rm \&\&qall : 删除&&qall文件。文件名中有特殊符号的，需要带转义字符。
 -------------------------------------------------------------------------------------
 useradd/usermod/userdel : 添加/修改/删除用户
 useradd username -g groupname : 添加用户时指定用户组
