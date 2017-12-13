@@ -9,7 +9,8 @@ netstat -anp: 查看网络连接,带进程号
 traceroute: 追踪路由
 route:查看本机路由表
 netstat -anp | grep :445 : 在当前监听的端口中查找是否有445端口。
-sudo -s : 切换到root用户	su username : 从root用户切换回普通用户
+sudo -s : ubuntu切换到root用户	su : centos临时切换到root用户	
+su username : 从root用户切换回普通用户
 export PATH="$PATH:/home/heluan123132/" : 加入环境变量
 ifconfig 网卡名 192.168.99.10 netmask 255.255.255.0 : 设置IP地址和子网掩码
 route -n : 查看默认网关
@@ -53,6 +54,7 @@ unzip test.zip -d test : unzip解压到指定目录
 wc -l `find . -name *.c -o -name *.h` 统计代码行数
 man info --help : linux下查看帮助的三个命令
 rm \&\&qall : 删除&&qall文件。文件名中有特殊符号的，需要带转义字符。
+rpm -qa|grep mariadb : centos查看软件的安装包
 -------------------------------------------------------------------------------------
 useradd/usermod/userdel : 添加/修改/删除用户
 useradd username -g groupname : 添加用户时指定用户组

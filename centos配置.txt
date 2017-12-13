@@ -7,4 +7,7 @@ IPADDR=192.168.1.8			#静态IP地址
 GATEWAY=192.168.1.1			#网关
 DNS1=172.16.16.16			#两个DNS地址
 DOMAIN=172.16.16.17
+然后：service network restart 重启网络服务
+
+虚拟机vmware要使用桥接模式，直接连接物理网络，这样和windows主系统才能互相访问。
 	
