@@ -17,7 +17,7 @@ vi /etc/vim/vimrc				"在vim配置文件中添加
 set tags=tags					"注册ctags需要关联的tags文件路径
 set tags+=/usr/include/tags			
 set tags+=/usr/src/linux-headers-4.4.0-78/tags
-map <F5> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR><CR> ：生成tags文件快捷键
+map <F5> :!ctags -R --c-kinds=+p --c++-kinds=+p --fields=+iaS --extra=+q<CR><CR> ：生成tags文件快捷键
 :tselect tagname 				"显示标签指向的所有选项
 ctrl+] : 跳转到定义	ctrl+o : 返回上一处
 
