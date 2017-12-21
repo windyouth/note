@@ -5,7 +5,15 @@
 4、存储过程的参数，varchar不支持中文，若要支持中文，必须设为nvarchar。
 5、mysql中if的正确用法：set id = if(result > 0, last_insert_id(), 0);
 6、php5.5之后的版本，取消了对mysql扩展的支持，只支持mysqli
-
+7、C语言中第一次执行存储过程时正确，第二次执行时出现：Commands out of sync; you can't run this command now
+   是因为：MYSQL的存储过程执行完成后除了返回实际结果集还会返回存储过程执行的状态，这两个都需要释放掉，才能执行下一步操作。如：
+	do
+	{ 
+		MYSQL_RES *pRes = mysql_store_result(pMySql); 
+    		if(pRes!=NULL) 
+        	mysql_free_result(pRes); 
+	} while(!mysql_next_result(pMySql));
+--------------------------------------------------------------------------------------------------------------------------------
 技巧：
 1、查看字符集：show variables like '%char%';
 2、查看创建表语句：show create table tablename;
@@ -23,7 +31,7 @@
 13、修改列名Oracle：lter table bbb rename column nnnnn to hh int; 
 14、修改列属性：alter table t_book modify name varchar(22); 
 15、纵向显示查询结果：select * from users\G;
-
+-------------------------------------------------------------------------------------------------------------------------------
 安装MariaDB:
 1、使用rpm -qa | grep mariadb搜索 MariaDB 现有的包：
 如果存在，使用rpm -e --nodeps mariadb-*全部删除：
