@@ -49,4 +49,7 @@
 41、创建一个新线程后，主线程必须休眠等待，以留出时间给新线程执行。
 42、conflicting types for '函数名'：有可能是函数内的参数类型不识别，检查相应的头文件是否包含进来。
 43、在死循环中，printf函数打印到屏幕，是因为没有加'\n'换行符。printf对应的stdout设备有缓冲区，当遇到\n时才会输出到屏幕。
-44、epoll_wait()函数接收到的fd(文件描述符)始终为0。原因可能是在epoll_ctl时对epoll_event数据结构的data.fd和data.ptr同时赋值，由于这个data是个联合，只有一个值生效，所以后值覆盖了前值。
+44、epoll_wait()函数接收到的fd(文件描述符)始终为0。原因可能是在epoll_ctl时对epoll_event数据结构的data.fd和data.ptr同时赋值，由于这个data是个联合，
+    只有一个值生效，所以后值覆盖了前值。
+45、新装的vmware player虚拟机无法联网，经过检查，可以ping通IP地址，但无法ping通域名，怀疑是dns服务器的设置问题。
+    ping了一下ifg-ens33文件中的域名IP，发现无法ping通，于是改了一个能ping通的dns地址，问题解决。
