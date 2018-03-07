@@ -1,4 +1,6 @@
-﻿SVN：
+﻿
+SVN：
+
 1、安装SVN：sudo apt install subversion
 2、检出： svn checkout 地址
 3、上传新文件：svn add 文件名
@@ -9,14 +11,22 @@
 6、如果误删了文件：svn up 或者 svn revert -r version
 7、查看最近5条提交日志：svn log --limit 5
 8、比较本地文件与远程数据库中版本的差异：svn diff test.cpp
+
 --------------------------------------------------------------------------------------------------------------------
+
 GIT：git下有4个对象：代码、索引、本地仓库、远程仓库
+     github的帐号中有三个东西：邮箱、用户名、域名
+
 1、安装git：sudo apt install git
 2、安装ssh密钥：ssh-keygen -t rsa -C "邮箱名"
         cat ~/.ssh/id_rsa.pub
         在服务器的管理页面上添加此密钥
-3、配置用户名和邮箱：git config --global user.name "用户名"
-           git config --global user.email "邮箱名"
+3、配置相关的环境参数：
+	//这一步会在用户目录下生成一个.gitconfig文件，记录用户名和密码，以避免后续重复输入。
+	git config --global credential.helper store	
+	//配置用户名和邮箱
+	git config --global user.name "用户名"
+    git config --global user.email "邮箱名"
 
 4、克隆代码到本地：git clone 地址
 5、查看区别：git diff --stat   查看代码与索引间不同的文件
@@ -51,5 +61,7 @@ GIT：git下有4个对象：代码、索引、本地仓库、远程仓库
 19、将branchname分支的修改内容合并到本地分支并提交：git merge branchname
 20、手动编辑冲突文件，解决冲突：git mergetool
 21、查看当前分支的状态：git status
+
 ---------------------------------------------------------------------------------------------------------------
+
 svn要先update再提交；git则相反，不要先pull，直接提交，否则很可能会产生很多冲突。
