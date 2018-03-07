@@ -23,7 +23,7 @@ GIT：git下有4个对象：代码、索引、本地仓库、远程仓库
         在服务器的管理页面上添加此密钥
 3、配置相关的环境参数：
 	//这一步会在用户目录下生成一个.gitconfig文件，记录用户名和密码，以避免后续重复输入。
-	git config --global credential.helper store	
+	git config --global credential.helper "store"	
 	//配置用户名和邮箱
 	git config --global user.name "用户名"
     git config --global user.email "邮箱名"
