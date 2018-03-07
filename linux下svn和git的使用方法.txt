@@ -1,5 +1,4 @@
-﻿
-SVN：
+﻿SVN：
 
 1、安装SVN：sudo apt install subversion
 2、检出： svn checkout 地址
@@ -21,8 +20,8 @@ GIT：git下有4个对象：代码、索引、本地仓库、远程仓库
 2、安装ssh密钥：ssh-keygen -t rsa -C "邮箱名"
         cat ~/.ssh/id_rsa.pub
         在服务器的管理页面上添加此密钥
-3、配置相关的环境参数：
-	//这一步会在用户目录下生成一个.gitconfig文件，记录用户名和密码，以避免后续重复输入。
+3、配置相关的环境参数，会在用户目录下自动生成一个.gitconfig文件：
+	//配置此参数后，可避免后续提交时重复输入用户名和密码。
 	git config --global credential.helper "store"	
 	//配置用户名和邮箱
 	git config --global user.name "用户名"
