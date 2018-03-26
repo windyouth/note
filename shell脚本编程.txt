@@ -82,6 +82,7 @@ cd ~ : 返回登录目录   cd / : 返回根目录   cd .. : 返回上级目录 
 rm -r ~/Documents/* : 删除目录下所有文件及文件夹
 -------------------------------------------------------------------------------------
 chmod 764 file1.txt : 设置文件的权限。
+chmod 764 -R dirname : 设置文件夹的权限，递归应用到里面所有的文件和文件夹。
 chown yaozishu myheart : 将myheart文件的所有者改为用户yaozishu。
 find . -name filename/dirname : 在当前目录下按照目录名或者文件名查找
 find . -mtime -30 : 查找最近30天内修改过的文件。
