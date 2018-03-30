@@ -32,7 +32,11 @@ mount /dev/sda3 /mnt/sda3 : 挂载分区	df -Th : 查看分区文件格式
 dpkg -l : 查看所有的已安装包
 tail -f /var/log/syslog : 跟踪系统日志
 tcpdump -i : linux抓包工具
+tcpdump -i eno16777984 : 抓包时指定网卡
 tcpdump -A udp port 6161 : 监听该端口的数据包并以ASC码方式打印出来。
+iptables -A INPUT -p tcp --dport 8080		//统计该端口的输入流量(dport destination port的缩写)
+iptables -A OUTPUT -p tcp --sport 8080		//统计该商品的输出流量(sport source port的缩写)
+iptables -L -v -n -x				//查看统计报告
 /etc/apparmor.d/ : 此目录下放置了各程序的权限配置文件
 dig baidu.com A/MX/CNAME/URL/NS : 询问域名服务器的IP指向/邮件路由/别名/网址转发/DNS记录
 dpkg-reconfigure tzdata : 修改系统时区
