@@ -53,3 +53,8 @@
     只有一个值生效，所以后值覆盖了前值。
 45、新装的vmware player虚拟机无法联网，经过检查，可以ping通IP地址，但无法ping通域名，怀疑是dns服务器的设置问题。
     ping了一下ifg-ens33文件中的域名IP，发现无法ping通，于是改了一个能ping通的dns地址，问题解决。
+46、error:‘pthread_mutext_t’ does not name a type : 
+	这种问题有两方面的原因：
+    	(1)、类型名是否有单词拼写错误。
+        (2)、是否包含了该变量类型的头文件，如果包含了，检查路径是否正确。
+    最后检查得知，是单词拼写错误，应该是“pthread_mutex_t”。
