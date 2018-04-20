@@ -61,6 +61,8 @@ rm `find . -name *.swp` 删除所有以swp为后缀的文件
 rm \&\&qall : 删除&&qall文件。文件名中有特殊符号的，需要带转义字符。
 rpm -qa|grep mariadb : centos查看软件的安装包
 man、info、--help : Linux下查看帮助的三个命令
+nload: 查看实时网络流量
+stat filename: 统计文件信息，精确到秒的更新时间。
 -------------------------------------------------------------------------------------
 useradd/usermod/userdel : 添加/修改/删除用户
 useradd username -g groupname : 添加用户时指定用户组
