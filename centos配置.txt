@@ -11,7 +11,8 @@ DOMAIN=60.255.80.19
 然后：service network restart 重启网络服务
       如果重启网络服务失败，可直接重启CentOS系统。
 
-虚拟机vmware要使用桥接模式，直接连接物理网络，这样和windows主系统才能互相访问。
+虚拟机vmware使用桥接模式，直接连接物理网络；
+使用共享模式是和windows主机组成一个局域网，两种模式都可以实现和windows之间的互访。
 
 
 	
