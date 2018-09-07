@@ -1,4 +1,4 @@
-﻿ps -aux:显示当前所有的进程
+﻿ps -aux : 显示当前所有的进程及其详细信息
 kill 进程号: 杀死进程,如果杀不掉,可以用kill -9 进程号
 pkill: 批量杀进程
 上下方向键,选择上一条命令或者下一条命令.
@@ -7,8 +7,6 @@ top: 动态监控进程状态
 top -d 10: 10秒更新一次状态
 cal 02 2015: 查看2015年2月的月历
 netstat -anp: 查看网络连接,带进程号
-traceroute: 追踪路由
-route:查看本机路由表
 netstat -anp | grep :445 : 在当前监听的端口中查找是否有445端口。
 sudo -s : ubuntu切换到root用户	su : centos临时切换到root用户	
 su username : 从root用户切换回普通用户
@@ -22,13 +20,12 @@ yum install cmake : 下载并安装程序
 wget http://download.redis.io/releases/redis-3.2.3.tar.gz : 下载文件，linux版的迅雷。
 curl 网址 : 访问网页
 git clone git网址 : git克隆网上目录到本地
-ps -aux : 列出每个进程的详细信息
 netstat -anp : 列出所有监听端口
 cat -n input : 带行号查看内容
 cat filename | tail -n +3000 | head -n 1000 ：从第3000行开始，显示1000行。即显示3000~3999行
 `pwd` : 返回此命令结果的字符串
 fdisk -l : 查看磁盘分区		mkfs -t ext4 /dev/sda3 : 格式化分区
-df -lh : 查看各磁盘占用情况	free -m : 查看内存使用情况
+df -lh : 查看各磁盘占用情况	                free -m : 查看内存使用情况
 mount /dev/sda3 /mnt/sda3 : 挂载分区	df -Th : 查看分区文件格式
 dpkg -l : 查看所有的已安装包
 tail -f /var/log/syslog : 跟踪系统日志
@@ -44,11 +41,6 @@ dpkg-reconfigure tzdata : 修改系统时区
 scp Bin/xCloudClient root@192.168.99.1:/usr/local/xcloud/bin : 远程上传文件
 history|tail -n 10 >> git_cmd ：追加到文件末尾
 history 10 : 显示linux最近10条命令
-kill 进程号: 杀死进程,如果杀不掉,可以用kill -9 进程号
-killall 进程号: 杀死此进程和它所有的子进程
-top: 动态监控进程状态
-top -d 10: 10秒更新一次状态
-cal 02 2015: 查看2015年2月的月历
 traceroute: 追踪路由
 route: 查看本机路由表
 uname: 查看操作系统名字
@@ -63,6 +55,8 @@ rpm -qa|grep mariadb : centos查看软件的安装包
 man、info、--help : Linux下查看帮助的三个命令
 nload: 查看实时网络流量
 stat filename: 统计文件信息，精确到秒的更新时间。
+strace ./test : 追踪该程序运行后产生的系统调用。
+gstack 10086 : 查看10086号进程的堆栈信息。
 -------------------------------------------------------------------------------------
 useradd/usermod/userdel : 添加/修改/删除用户
 useradd username -g groupname : 添加用户时指定用户组
