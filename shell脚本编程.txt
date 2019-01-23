@@ -93,6 +93,7 @@ grep hello *.txt : 在所有后缀为txt的文件中搜索含有hello单词的�
 grep -c ^$ test.sh : 从test.sh文件中搜索空行，打印出行数。
 sed -i "s/garden/mirGarden/g" 1.txt ：将文件1.txt内的文字“garden”替换成“mirGarden”
 sed -i "s/garden/mirGarden/g" `ls` ：将当前目录下的所有文件内的“garden”替换成“mirGarden”，其实也就是ls出多个文件名而已
+sed -i "s/g_client_/g_user_/g" `find . -name *.h -o -name *.c` : 将当前目录下代码中所有的"g_client_"替换成“g_user_”
 sed '1,$d' file1.txt : 删除该文件中第一行到最后一行。
 sed -n 's/hello/[&]/p' hello.c ：将hello.c文件中hello单词加上[]
 sed -n '/hello/w output' input : 将与hello匹配的行写入output文件
