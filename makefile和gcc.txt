@@ -14,15 +14,16 @@
  * make的隐式规则，在指定同样的显示规则后，隐式规则将会失效。如：%.o: %.c，此时头文件更改后makefile无法检测到，需要写成：%.o: %.c %.h
 
             < -- gcc命令 -- >
-1.gcc hello.c -o hello -I/home/include: 编绎时指定包含目录
-2.gcc hello.c -o hello -L/home/lib: 编绎时附加库目录
-3.环境变量中: C_INCLUDE_PATH:头文件包含路径  LIBRARY_PATH:库文件路径  LD_LIBRARY_PATH:动态库路径
-4.gcc hello.c -o hello 动态库路径: 编绎时连接动态库
-5.gcc hello.c -o hello.so -shared -fpic: 将源文件编绎为动态库文件
-6.gcc -x c hello.c -o hello: 指定按C语言方式来编绎hello.c
-7.gcc libev_test.c -L /usr/local/lib -lev : 编绎时从指定目录下链接libev.so动态库
-8.gcc libev_test.c -L /usr/local/lib -lev -static : 强制链接静态库而忽略动态库
-9.gcc -c main.c : 只编绎不连接，生成main.o目标程序。
-10.gcc -MM main.c : 自动寻找包含的头文件，生成依赖关系。
-11.ldd main : 查看生成的文件的动态库依赖关系表
-gcc -D TEST : 编绎时在代码中添加#define TEST
+ * gcc hello.c -o hello -I/home/include: 编绎时指定包含目录
+ * gcc hello.c -o hello -L/home/lib: 编绎时附加库目录
+ * 环境变量中: C_INCLUDE_PATH:头文件包含路径  LIBRARY_PATH:库文件路径  LD_LIBRARY_PATH:动态库路径
+ * gcc hello.c -o hello 动态库路径: 编绎时连接动态库
+ * gcc hello.c -o hello.so -shared -fpic: 将源文件编绎为动态库文件
+ * gcc -x c hello.c -o hello: 指定按C语言方式来编绎hello.c
+ * gcc libev_test.c -L /usr/local/lib -lev : 编绎时从指定目录下链接libev.so动态库
+ * gcc libev_test.c -L /usr/local/lib -lev -static : 强制链接静态库而忽略动态库
+ * gcc -c main.c : 只编绎不连接，生成main.o目标程序。
+ * gcc -MM main.c : 自动寻找包含的头文件，生成依赖关系。
+ * ldd main : 查看生成的文件的动态库依赖关系表
+ * gcc -D TEST : 编绎时在代码中添加#define TEST
+ * gcc -E hello.c -o hello.i : 预编绎展开，对于检查宏非常有用。

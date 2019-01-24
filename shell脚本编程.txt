@@ -5,6 +5,7 @@ pkill: 批量杀进程
 killall 进程号: 杀死此进程和它所有的子进程
 top: 动态监控进程状态
 top -d 10: 10秒更新一次状态
+top -p pid0[, pid1]..[, pidn] : 查看单个进程或某些进程
 cal 02 2015: 查看2015年2月的月历
 netstat -anp: 查看网络连接,带进程号
 netstat -anp | grep :445 : 在当前监听的端口中查找是否有445端口。
@@ -57,9 +58,13 @@ nload: 查看实时网络流量
 stat filename: 统计文件信息，精确到秒的更新时间。
 strace ./test : 追踪该程序运行后产生的系统调用。
 gstack 10086 : 查看10086号进程的堆栈信息。
+./qps_server & : 以后台方式启动程序
+pidof qps_server : 查看进程的进程ID
+
 -------------------------------------------------------------------------------------
 useradd/usermod/userdel : 添加/修改/删除用户
 useradd username -g groupname : 添加用户时指定用户组
+usermod -g root heluan : 将用户设置到root用户组
 passwd username : 给用户设置密码
 tail -l /etc/passwd : 查看用户列表文件
 tail -l /etc/shadow : 查看各用户密码
@@ -91,6 +96,7 @@ find . -mtime -30 : 查找最近30天内修改过的文件。
 grep&sed命令：
 grep hello *.txt : 在所有后缀为txt的文件中搜索含有hello单词的行。
 grep -c ^$ test.sh : 从test.sh文件中搜索空行，打印出行数。
+grep -n enum *.h : 在所有后缀为.h的文件中搜索含有enum单词的行，并带行号输出。
 sed -i "s/garden/mirGarden/g" 1.txt ：将文件1.txt内的文字“garden”替换成“mirGarden”
 sed -i "s/garden/mirGarden/g" `ls` ：将当前目录下的所有文件内的“garden”替换成“mirGarden”，其实也就是ls出多个文件名而已
 sed -i "s/g_client_/g_user_/g" `find . -name *.h -o -name *.c` : 将当前目录下代码中所有的"g_client_"替换成“g_user_”
