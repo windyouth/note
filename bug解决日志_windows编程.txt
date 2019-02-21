@@ -1,0 +1,22 @@
+ * error LNK2019 : 无法解析的外部符号。调用dll的导出函数时出现此错误，在函数声明外屏蔽extern "C"后错误消失。
+   有可能是DLL文件是C++写的，在dllexport的时候，没有使用extern "C"，直接以C++的格式导出函数。
+   调用项目如果是C++，可以使用该DLL，但dllimport声明处就不能加extern "C"，否则会出现LNK2019错误。
+   调用项目如果是C或者其他语言，将无法使用该DLL。
+ * 在mingw中使用makefile时出现错误：Error makefile 2 : Command syntax error，是因为在命令行中直接使用makefile，需要从专门的mingw-window.bat打开命令行，才能正确执行   makefile。
+ * mingw编绎出现错误，undefined reference to 'WinMain'，是因为源文件中缺少main函数，检查makefile展开的gcc命令，发现main.c文件没有包含进去。
+ * makefile核心已转储，生成了dump文件，一般是makefile文件中的语法错误。
+ * 开发工具尽量去官网下，如果同样的代码其他版本能编，这个版本不能编，优先考虑是不是下了盗版软件，被人动过手脚。
+ * windows编的dll和linux的exe不能互相调用。
+ * 代码测试覆盖率：gcov生成.gcno文件时，gcc不要把头文件也编进去，否则会导致同名的.c文件生成的.gcno文件大小为0
+ * msys2中 ：gcc a.c b.dll -o a.exe，这种情况下，不支持外文件夹搜索dll库文件，故需要将dll文件拷到exe的目录下来。
+   这种是以windows的方式链拉dll，所以必须有dllexport和dllimport的关键字声明。
+ * msys2中，编绎时如果发现链拉dll，但是无法找到导出函数的定义，考虑是否是因为带windows字样的宏缺失，同样的代码用mingw编绎没有问题。
+ * dll链接时，对‘function_name’未定义的引用，检查dllexport/dllimport关键字匹配是否正确，相关的宏展开是否有问题。
+ * ctags和cscope不支持文件路径中含中文，否则会提示无法打开相应文件。因为全路径文件名中，中文字符不识别。
+ * 32位的exe不能加载64位的动态库
+ * mingw编绎的dll中malloc的内存，在vc中free会触发断言错误，可以mingw编绎的dll中提供一个free函数的接口解决此问题。这也符合内存管理中谁申请谁释放的原则。
+ * windows下的socket编程，出现link2019错误，无法解析的外部符号__imp_connect等，在文件头部加上#pragma comment(lib, "ws2_32.lib")，问题解决。
+ * makefile错误：missing 'enddef'，unterminated 'define', Stop. Centos 6.5才出现此错误，centos 7可正常编绎，将名为define的变量和等号之间的空格去掉，问题解决。
+ * libhlnet.so : cannot open shared object file: No such file or directory : ldd可执行程序，发现有一行：libhlnet.so=>not found
+   解决方法：LD_LIBRARY_PATH=LD_LIBRARY_PATH:"so文件所在目录"; export LD_LIBRARY_PATH. 再次执行ldd，结果正常。
+* hlnet库调用serv_ctl失败，有可能是监听端口失败，查看端口是否已经被占用，或者之前启动的后台程序没有关闭。

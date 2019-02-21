@@ -1,12 +1,12 @@
- * ¸ù¾ÝËùÊô»·¾³ºÍ±àÒï³öµÄ³ÌÐòÀ´·Ö£º
-    msys :			linux»·¾³£¬linux³ÌÐò
-    msysÖÐµÄmingw :  	linux»·¾³£¬windows³ÌÐò
-    windowsÖÐµÄmingw : 	windows»·¾³£¬windows³ÌÐò
- * mingw±àÒï³öµÄ³ÌÐò£¬windows¿ÉÒÔµ÷ÓÃ¡£
-   msys±àÒï³öµÄ³ÌÐò£¬windows²»ÄÜµ÷ÓÃ¡£
-   mingwºÍwindows±àÒï³öµÄ³ÌÐò£¬msys¿ÉÒÔµ÷ÓÃ¡£¼´msysµ¥Ïò¼æÈÝwindows³ÌÐò¡£
- * mingwºÍVS±àÒï³öµÄ³ÌÐò£¬Ä¿Ç°±àÒï³öµÄÎÄ¼þ»¹ÊÇÓÐÐ©²îÒì£¬»¥Ïàµ÷ÓÃ»áÓÐ¼æÈÝÐÔÎÊÌâ¡£
- * gccµÄ-WlºóÃæ¸ú²ÎÊý²»ÄÜÓÐ¿Õ¸ñ£¬·ñÔò²»Ê¶±ð¡£
- * genhtmlÄ¿Ç°Ö»Ö§³Ölinux³ÌÐò£¬windows³ÌÐò»¹²»Ö§³Ö¡£
-   windows±àµÄdllºÍlinux±àµÄexeÖ®¼ä²»ÄÜ»¥Ïàµ÷ÓÃ(µ±È»ÁË)
-   Ê¹ÓÃgcovÊ±£¬´ò¹ý×®µÄdllÎÄ¼þ¿ÉÒÔ±»Î´´ò×®µÄexeµ÷ÓÃ¡£
+ï»¿ * æ ¹æ®æ‰€å±žçŽ¯å¢ƒå’Œç¼–ç»Žå‡ºçš„ç¨‹åºæ¥åˆ†ï¼š
+    msys :			linuxçŽ¯å¢ƒï¼Œlinuxç¨‹åº
+    msysä¸­çš„mingw :  	linuxçŽ¯å¢ƒï¼Œwindowsç¨‹åº
+    windowsä¸­çš„mingw : 	windowsçŽ¯å¢ƒï¼Œwindowsç¨‹åº
+ * mingwç¼–ç»Žå‡ºçš„ç¨‹åºï¼Œwindowså¯ä»¥è°ƒç”¨ã€‚
+   msysç¼–ç»Žå‡ºçš„ç¨‹åºï¼Œwindowsä¸èƒ½è°ƒç”¨ã€‚
+   mingwå’Œwindowsç¼–ç»Žå‡ºçš„ç¨‹åºï¼Œmsyså¯ä»¥è°ƒç”¨ã€‚å³msyså•å‘å…¼å®¹windowsç¨‹åºã€‚
+ * mingwå’ŒVSç¼–ç»Žå‡ºçš„ç¨‹åºï¼Œç›®å‰ç¼–ç»Žå‡ºçš„æ–‡ä»¶è¿˜æ˜¯æœ‰äº›å·®å¼‚ï¼Œäº’ç›¸è°ƒç”¨ä¼šæœ‰å…¼å®¹æ€§é—®é¢˜ã€‚
+ * gccçš„-WlåŽé¢è·Ÿå‚æ•°ä¸èƒ½æœ‰ç©ºæ ¼ï¼Œå¦åˆ™ä¸è¯†åˆ«ã€‚
+ * genhtmlç›®å‰åªæ”¯æŒlinuxç¨‹åºï¼Œwindowsç¨‹åºè¿˜ä¸æ”¯æŒã€‚
+   windowsç¼–çš„dllå’Œlinuxç¼–çš„exeä¹‹é—´ä¸èƒ½äº’ç›¸è°ƒç”¨(å½“ç„¶äº†)
+   ä½¿ç”¨gcovæ—¶ï¼Œæ‰“è¿‡æ¡©çš„dllæ–‡ä»¶å¯ä»¥è¢«æœªæ‰“æ¡©çš„exeè°ƒç”¨ã€‚
