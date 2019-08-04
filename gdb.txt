@@ -29,7 +29,7 @@
 28.break CDevice::Init : 在该函数入口处设置断点 	break log.c:100 : 在log.c文件的第100行设置断点
 29 print CDevice::Init() : 打印函数的返回值
 30.thread 3 : 切换到编号为3的线程执行
-31.bt : 查看所有调用栈
+31.backtrace/bt : 查看所有调用栈
 32.set scheduler-locking off|on : 不锁定任何线程/锁定当前线程 执行
 33.list - : 查看当前位置的前10行代码。
 34.show follow-fork-mode : 查看目前的跟踪模式
