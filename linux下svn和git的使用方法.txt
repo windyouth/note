@@ -1,15 +1,30 @@
-﻿SVN：
+SVN：
 
-1、安装SVN：sudo apt install subversion
-2、检出： svn checkout 地址
-3、上传新文件：svn add 文件名
+ * 安装SVN：sudo apt install subversion
+ * 检出： svn checkout 地址
+ * 上传新文件：svn add 文件名
                           
-4、修改代码：直接输入：svn commit -m "备注"
-5、删除文件：svn delete 文件名
+ * 修改代码：直接输入：svn commit -m "备注"
+ * 删除文件：svn delete 文件名
                
-6、如果误删了文件：svn up 或者 svn revert -r version
-7、查看最近5条提交日志：svn log --limit 5
-8、比较本地文件与远程数据库中版本的差异：svn diff test.cpp
+ * 如果误删了文件：svn up 或者 svn revert -r version
+ * 查看最近5条提交日志：svn log --limit 5
+ * 比较本地文件与远程数据库中版本的差异：svn diff test.cpp
+
+ * 查看状态：svn status
+ * 更新：svn update
+ * svn resolve : 解决冲突
+  svn resolved : 标记为已解决，去掉冲突标记
+
+ * 更新word文档
+   svn lock : 获取写锁
+   svn unlock : 释放写锁
+
+ * svn revert : 将文件恢复到与svn上一致
+ * svn delete : 删除文件并删除其在svn中的管理
+ * svn move : svn下重命名文件
+ * svn copy : svn下复制文件
+   svn merge : 合并其他分支
 
 --------------------------------------------------------------------------------------------------------------------
 
